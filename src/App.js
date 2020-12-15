@@ -32,8 +32,8 @@ export default function App() {
   }
 
   return (
-    <div className="App">
-      <img className="poster-img" src={show.image.original} alt={show.name} />
+    <div className="App" data-testid="app">
+      <img className="poster-img" src={show.image.original} alt={show.name} data-testid="poster"/>
       <h1>{show.name}</h1>
       {parse(show.summary)}
       <Dropdown
@@ -41,8 +41,9 @@ export default function App() {
         onChange={handleSelect}
         value={selectedSeason || "Select a season"}
         placeholder="Select an option"
+        data-testid="dropDown"
       />
-      <Episodes episodes={episodes} />
+      <Episodes episodes={episodes} data-testid="episodes-test"/>
     </div>
   );
 }
