@@ -38,3 +38,9 @@ test('Episodes component shows data when rerendered with new data', () => {
     episodes = screen.queryAllByTestId("episode");
     expect(episodes).toHaveLength(2);
 })
+
+test('Mock function in <Episodes> unit', () => {
+    const mockData = jest.fn(() => {return testEpisodes});
+
+    render(<Episodes episodes={mockData()} />);
+})
